@@ -1,1 +1,0 @@
-# IHBA-Nimcet-Mock-Test
