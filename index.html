@@ -1,0 +1,204 @@
+<html>
+<head>
+    <title>NIMCET 50-Mock Test Portal</title>
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="app-header">
+        <div class="logo-area" id="homeLogoBtn">
+            <span class="logo-badge">NIMCET</span>
+            <h2>Math Master Test Portal</h2>
+        </div>
+        <div class="header-right">
+            <span id="globalStats" class="global-stats">50 Mock Tests Loaded (2,500 Questions)</span>
+            <button id="resetAllBtn" class="secondary-btn">Reset All Progress</button>
+        </div>
+    </header>
+    <main class="container">
+
+        <section id="dashboardSection" class="view-section">
+            <div class="dashboard-banner">
+                <h1>NIMCET 2026 Mathematics Mock Series</h1>
+                <p>50 Full-Length Math Practice Tests • 50 Questions Each • 50 Minutes per Test</p>
+            </div>
+            <div class="test-grid" id="testGrid">
+            </div>
+        </section>
+        <section id="instructionsSection" class="view-section hidden">
+            <div class="card">
+                <h2 id="instructionTestTitle">Mock Test Instructions</h2>
+                <hr>
+                <div class="instruction-body">
+                    <p><strong>Exam Rules & Pattern:</strong></p>
+                    <ul>
+                        <li><strong>Total Questions:</strong> 50 Mathematics Questions.</li>
+                        <li><strong>Time Duration:</strong> 50 Minutes (Strict Countdown Timer).</li>
+                        <li><strong>Marking Scheme:</strong> <span class="badge positive">+12 Marks</span> for each correct answer.</li>
+                        <li><strong>Negative Marking:</strong> <span class="badge negative">-3 Marks</span> for each wrong answer.</li>
+                        <li><strong>Unattempted:</strong> 0 Marks.</li>
+                        <li><strong>Time Tracking:</strong> The portal precisely tracks the time spent on each individual question.</li>
+                    </ul>
+                    <p>Make sure you are in a quiet environment before starting the test.</p>
+                </div>
+                <div class="card-footer">
+                    <button id="backToDashBtn" class="secondary-btn">← Back to Dashboard</button>
+                    <button id="beginTestBtn" class="primary-btn">Start Test Now</button>
+                </div>
+            </div>
+        </section>
+
+       
+        <section id="testSection" class="view-section hidden">
+            <div class="test-header-bar">
+                <div class="test-title-info">
+                    <h3 id="activeTestTitle">NIMCET Mock Test 1</h3>
+                    <span class="marking-tag">+12 / -3 Marks</span>
+                </div>
+                <div class="timer-box">
+                    <span>Time Remaining:</span>
+                    <span id="timer" class="timer-display">50:00</span>
+                </div>
+            </div>
+
+            <div class="test-layout">
+            
+                <div class="question-main-card">
+                    <div class="question-header">
+                        <span id="questionTopic" class="topic-pill">Topic Name</span>
+                        <span class="question-counter">Question <span id="questionNumber">1</span> of <span id="totalQuestions">50</span></span>
+                    </div>
+
+                    <div id="questionText" class="question-text">
+                    </div>
+
+                    <div class="options-container" id="optionsContainer">
+                        <label class="option-item">
+                            <input type="radio" name="option" value="0">
+                            <span class="opt-prefix">A</span>
+                            <span id="option0" class="opt-text">Option A</span>
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="option" value="1">
+                            <span class="opt-prefix">B</span>
+                            <span id="option1" class="opt-text">Option B</span>
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="option" value="2">
+                            <span class="opt-prefix">C</span>
+                            <span id="option2" class="opt-text">Option C</span>
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="option" value="3">
+                            <span class="opt-prefix">D</span>
+                            <span id="option3" class="opt-text">Option D</span>
+                        </label>
+                    </div>
+
+                    <div class="question-action-bar">
+                        <div class="left-actions">
+                            <button id="clearBtn" class="tertiary-btn">Clear Selection</button>
+                        </div>
+                        <div class="right-actions">
+                            <button id="previousBtn" class="secondary-btn">Previous</button>
+                            <button id="nextBtn" class="primary-btn">Save & Next</button>
+                            <button id="submitBtn" class="danger-btn">Submit Test</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="palette-sidebar">
+                    <h4>Question Palette</h4>
+                    <div class="palette-legend">
+                        <span><i class="dot attempted"></i> Attempted</span>
+                        <span><i class="dot unattempted"></i> Unattempted</span>
+                        <span><i class="dot current"></i> Current</span>
+                    </div>
+                    <div id="questionPalette" class="palette-grid">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="resultSection" class="view-section hidden">
+            <div class="card result-card">
+                <h2>Test Result Summary</h2>
+                <div class="score-banner">
+                    <div class="score-main">
+                        <span class="score-title">Final Score</span>
+                        <h1 id="finalScore">0</h1>
+                        <span class="score-max">/ 600 Marks</span>
+                    </div>
+                    <div class="accuracy-main">
+                        <span class="score-title">Accuracy Rate</span>
+                        <h1 id="accuracy">0%</h1>
+                    </div>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-box correct">
+                        <span class="metric-value" id="correctCount">0</span>
+                        <span class="metric-label">Correct Answers (+12)</span>
+                    </div>
+                    <div class="metric-box wrong">
+                        <span class="metric-value" id="wrongCount">0</span>
+                        <span class="metric-label">Wrong Answers (-3)</span>
+                    </div>
+                    <div class="metric-box unattempted">
+                        <span class="metric-value" id="unattemptedCount">0</span>
+                        <span class="metric-label">Unattempted</span>
+                    </div>
+                    <div class="metric-box time">
+                        <span class="metric-value" id="totalTimeSpent">00:00</span>
+                        <span class="metric-label">Total Time Spent</span>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <button id="dashboardFromScoreBtn" class="secondary-btn">Go to Dashboard</button>
+                    <button id="reviewBtn" class="primary-btn">Review Solutions & Question Times</button>
+                    <button id="nextTestDirectBtn" class="success-btn">Take Next Test →</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="reviewSection" class="view-section hidden">
+            <div class="review-header-bar">
+                <h2>Detailed Solutions & Time Spent per Question</h2>
+                <div>
+                    <button id="homeBtn" class="secondary-btn">Dashboard</button>
+                    <button id="reviewNextTestBtn" class="success-btn">Next Test →</button>
+                </div>
+            </div>
+            <div id="reviewContainer" class="review-list">
+            
+            </div>
+        </section>
+
+    </main>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>NIMCET Math Master Portal</h3>
+                <p>Designed for high-performance MCA entrance preparation with 50 rigorous mock tests.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <p>📧 Email: korapakaabhishek@gmail.com</p>
+                <p>📱 Mobile: +91 7680083340 </p>
+            </div>
+            <div class="footer-col">
+                <h4>Location</h4>
+                <p> Telangana Hyderabad - 500018</p>
+                <p>🌍  India</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Korapaka Abhishek. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+    <!-- Custom Application Logic -->
+    <script src="script.js"></script>
+</body>
+</html>
